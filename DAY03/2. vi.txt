@@ -1,0 +1,22 @@
+vi fileName
+
+press i ---> go to insert mode
+
+esc  ---> terminal mode
+
+:q!   --> quit
+
+:wq!   --> save and quit
+
+
+terminal  --> :se nu    --> Line Numbers display
+
+terminal  --> :se nonu  --> remove the line numbers
+
+termianl  ---> :LineNumber  
+
+terminal   ---> /data
+
+terminal --> :Linenumber  dd
+
+terminal --> u  --> undo
