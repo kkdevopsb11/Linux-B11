@@ -1,0 +1,100 @@
+1  2026-09-23 07:00:01 ERROR [AuthService] Failed to authenticate user: invalid credentials
+2  2026-09-23 07:00:03 ERROR [Database] Connection timeout while connecting to PostgreSQL
+3  2026-09-23 07:00:05 WARN  [Cache] Redis connection unavailable, retrying
+4  2026-09-23 07:00:07 ERROR [API] GET /api/users returned HTTP 500
+5  2026-09-23 07:00:09 ERROR [Payment] Payment transaction failed: gateway timeout
+6  2026-09-23 07:00:11 WARN  [AuthService] Multiple failed login attempts detected
+7  2026-09-23 07:00:13 ERROR [Database] Failed to execute query: relation users does not exist
+8  2026-09-23 07:00:15 ERROR [API] POST /api/orders returned HTTP 400
+9  2026-09-23 07:00:17 ERROR [FileService] Unable to read configuration file
+10 2026-09-23 07:00:19 WARN  [Cache] Cache miss for key user_1024
+11 2026-09-23 07:00:21 ERROR [AuthService] JWT token validation failed
+12 2026-09-23 07:00:23 ERROR [Database] Deadlock detected during transaction
+13 2026-09-23 07:00:25 WARN  [API] Request exceeded configured timeout
+14 2026-09-23 07:00:27 ERROR [Payment] Card authorization declined
+15 2026-09-23 07:00:29 ERROR [Database] Connection pool exhausted
+16 2026-09-23 07:00:31 WARN  [Worker] Job queue length exceeded threshold
+17 2026-09-23 07:00:33 ERROR [API] Failed to parse JSON request body
+18 2026-09-23 07:00:35 ERROR [FileService] Permission denied while accessing /var/app/data
+19 2026-09-23 07:00:37 ERROR [AuthService] User session expired unexpectedly
+20 2026-09-23 07:00:39 WARN  [Cache] Redis latency above 500ms
+21 2026-09-23 07:00:41 ERROR [Database] SQL syntax error near 'FROM'
+22 2026-09-23 07:00:43 ERROR [API] PUT /api/profile returned HTTP 404
+23 2026-09-23 07:00:45 WARN  [Worker] Worker heartbeat missed
+24 2026-09-23 07:00:47 ERROR [Payment] Payment provider returned HTTP 503
+25 2026-09-23 07:00:49 ERROR [Database] Failed to commit transaction
+26 2026-09-23 07:00:51 ERROR [AuthService] OAuth provider unavailable
+27 2026-09-23 07:00:53 WARN  [API] Rate limit approaching for client 10.0.0.15
+28 2026-09-23 07:00:55 ERROR [FileService] Failed to create temporary file
+29 2026-09-23 07:00:57 ERROR [Database] Query execution exceeded 30 seconds
+30 2026-09-23 07:00:59 WARN  [Cache] Cache entry expired before expected TTL
+31 2026-09-23 07:01:01 ERROR [API] GET /api/products returned HTTP 502
+32 2026-09-23 07:01:03 ERROR [AuthService] Invalid refresh token
+33 2026-09-23 07:01:05 WARN  [Worker] Retry attempt 2 of 3
+34 2026-09-23 07:01:07 ERROR [Database] Host unreachable at db.internal
+35 2026-09-23 07:01:09 ERROR [Payment] Currency conversion service unavailable
+36 2026-09-23 07:01:11 WARN  [API] Slow response detected: 4.8s
+37 2026-09-23 07:01:13 ERROR [FileService] File checksum validation failed
+38 2026-09-23 07:01:15 ERROR [Database] Too many connections
+39 2026-09-23 07:01:17 WARN  [AuthService] Password reset request rate limit reached
+40 2026-09-23 07:01:19 ERROR [API] POST /api/login returned HTTP 401
+41 2026-09-23 07:01:21 ERROR [Worker] Failed to process job ID 84721
+42 2026-09-23 07:01:23 WARN  [Cache] Memory usage above 85%
+43 2026-09-23 07:01:25 ERROR [Database] Failed to prepare statement
+44 2026-09-23 07:01:27 ERROR [Payment] Transaction rollback initiated
+45 2026-09-23 07:01:29 ERROR [API] Invalid request parameter: userId
+46 2026-09-23 07:01:31 WARN  [Worker] Job processing time exceeded threshold
+47 2026-09-23 07:01:33 ERROR [FileService] Disk space below minimum threshold
+48 2026-09-23 07:01:35 ERROR [AuthService] Account temporarily locked
+49 2026-09-23 07:01:37 ERROR [Database] SSL connection handshake failed
+50 2026-09-23 07:01:39 WARN  [API] Deprecated endpoint accessed
+51 2026-09-23 07:01:41 ERROR [Payment] Duplicate transaction detected
+52 2026-09-23 07:01:43 ERROR [Worker] Unable to deserialize job payload
+53 2026-09-23 07:01:45 WARN  [Cache] Eviction rate above normal
+54 2026-09-23 07:01:47 ERROR [Database] Column email_address not found
+55 2026-09-23 07:01:49 ERROR [API] Internal server error while processing request
+56 2026-09-23 07:01:51 WARN  [AuthService] Token expiration time is unusually short
+57 2026-09-23 07:01:53 ERROR [FileService] Configuration file contains invalid YAML
+58 2026-09-23 07:01:55 ERROR [Database] Transaction serialization failure
+59 2026-09-23 07:01:57 WARN  [Worker] Queue connection interrupted
+60 2026-09-23 07:01:59 ERROR [Payment] Missing required payment method
+61 2026-09-23 07:02:01 ERROR [API] Request body exceeds maximum size
+62 2026-09-23 07:02:03 WARN  [Cache] Failed to refresh cache entry
+63 2026-09-23 07:02:05 ERROR [Database] Database server restarted unexpectedly
+64 2026-09-23 07:02:07 ERROR [AuthService] User not found for supplied username
+65 2026-09-23 07:02:09 WARN  [API] Client disconnected before response
+66 2026-09-23 07:02:11 ERROR [Worker] Job exceeded maximum execution time
+67 2026-09-23 07:02:13 ERROR [FileService] Failed to upload file to object storage
+68 2026-09-23 07:02:15 WARN  [Database] Replication lag exceeded 10 seconds
+69 2026-09-23 07:02:17 ERROR [Payment] Invalid payment amount
+70 2026-09-23 07:02:19 ERROR [API] Failed to connect to downstream service
+71 2026-09-23 07:02:21 WARN  [AuthService] Session store response delayed
+72 2026-09-23 07:02:23 ERROR [Database] Unable to acquire database lock
+73 2026-09-23 07:02:25 ERROR [Worker] Failed to acknowledge message
+74 2026-09-23 07:02:27 WARN  [Cache] Redis reconnect attempt 3
+75 2026-09-23 07:02:29 ERROR [FileService] Object storage returned HTTP 403
+76 2026-09-23 07:02:31 ERROR [API] Unsupported HTTP method
+77 2026-09-23 07:02:33 WARN  [Payment] Payment request retried automatically
+78 2026-09-23 07:02:35 ERROR [Database] Network connection reset by peer
+79 2026-09-23 07:02:37 ERROR [AuthService] Failed to load user permissions
+80 2026-09-23 07:02:39 WARN  [Worker] Insufficient worker capacity
+81 2026-09-23 07:02:41 ERROR [API] Response serialization failed
+82 2026-09-23 07:02:43 ERROR [FileService] File not found: application.properties
+83 2026-09-23 07:02:45 WARN  [Database] Query planner statistics are outdated
+84 2026-09-23 07:02:47 ERROR [Payment] Refund request failed
+85 2026-09-23 07:02:49 ERROR [API] Endpoint dependency returned invalid response
+86 2026-09-23 07:02:51 WARN  [AuthService] Authentication service latency increased
+87 2026-09-23 07:02:53 ERROR [Database] Unexpected null value in required column
+88 2026-09-23 07:02:55 ERROR [Worker] Job retry limit exceeded
+89 2026-09-23 07:02:57 WARN  [Cache] Cache synchronization delayed
+90 2026-09-23 07:02:59 ERROR [FileService] Failed to rotate log file
+91 2026-09-23 07:03:01 ERROR [API] Service dependency unavailable
+92 2026-09-23 07:03:03 WARN  [Payment] Gateway response time exceeded threshold
+93 2026-09-23 07:03:05 ERROR [Database] Failed to release connection
+94 2026-09-23 07:03:07 ERROR [AuthService] Access token signature invalid
+95 2026-09-23 07:03:09 WARN  [Worker] Consumer group rebalancing
+96 2026-09-23 07:03:11 ERROR [API] Request processing failed unexpectedly
+97 2026-09-23 07:03:13 ERROR [FileService] Log rotation failed: insufficient permissions
+98 2026-09-23 07:03:15 WARN  [Database] Connection latency above normal threshold
+99 2026-09-23 07:03:17 ERROR [Payment] Unable to confirm transaction status
+100 2026-09-23 07:03:19 ERROR [System] Application shutdown triggered due to critical service failure
