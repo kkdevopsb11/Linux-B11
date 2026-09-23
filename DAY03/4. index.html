@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KK FUNDA HOSPITAL | Hospital Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #0b7fab;
+            --primary-dark: #075b7a;
+            --secondary: #00a896;
+            --light: #f4f8fb;
+            --white: #ffffff;
+            --dark: #17324d;
+            --text: #66788a;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --success: #20a464;
+            --shadow: 0 10px 30px rgba(24, 74, 99, 0.10);
+            --radius: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 75px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo h2 {
+            font-size: 21px;
+            color: var(--dark);
+        }
+
+        .logo span {
+            display: block;
+            color: var(--primary);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #526779;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .emergency-btn {
+            background: var(--danger);
+            color: white;
+            padding: 11px 18px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 440px;
+            padding: 70px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background:
+                linear-gradient(120deg, rgba(4, 76, 105, .97), rgba(0, 157, 151, .87)),
+                radial-gradient(circle at top right, #fff, transparent);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 7px 15px;
+            border: 1px solid rgba(255,255,255,.3);
+            background: rgba(255,255,255,.1);
+            border-radius: 30px;
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.05;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #9ff7ed;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #e4f7fa;
+            max-width: 580px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 23px;
+            border-radius: 9px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,.5);
+            color: white;
+            background: transparent;
+        }
+
+        .hero-card {
+            width: 310px;
+            padding: 28px;
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 22px;
+        }
+
+        .hero-card h3 {
+            margin-bottom: 20px;
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 12px;
+            margin: 15px 0;
+            align-items: center;
+        }
+
+        .hero-info-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255,255,255,.15);
+            display: grid;
+            place-items: center;
+        }
+
+        /* ================= MAIN ================= */
+
+        .container {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title small {
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--text);
+            margin-top: 8px;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            margin-top: -45px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: #e8f6fa;
+            border-radius: 12px;
+            font-size: 21px;
+        }
+
+        .stat-card h2 {
+            margin-top: 20px;
+            font-size: 29px;
+        }
+
+        .stat-card p {
+            color: var(--text);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .increase {
+            color: var(--success);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ================= DASHBOARD ================= */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .panel-header h3 {
+            font-size: 18px;
+        }
+
+        .panel-header a {
+            color: var(--primary);
+            font-size: 13px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            color: #8a99a8;
+            font-size: 12px;
+            padding: 12px 8px;
+            border-bottom: 1px solid #edf1f4;
+        }
+
+        td {
+            padding: 16px 8px;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f3f5;
+        }
+
+        .patient {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(135deg, #16a085, #3498db);
+            font-size: 12px;
+        }
+
+        .badge {
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .confirmed {
+            background: #e7f8ef;
+            color: #169653;
+        }
+
+        .pending {
+            background: #fff5df;
+            color: #d48a08;
+        }
+
+        .cancelled {
+            background: #fdeaea;
+            color: #d64545;
+        }
+
+        /* ================= DEPARTMENTS ================= */
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .department {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: .3s;
+            border: 1px solid transparent;
+        }
+
+        .department:hover {
+            transform: translateY(-6px);
+            border-color: #c8ebf2;
+        }
+
+        .department-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: #e8f7f8;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .department h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .department p {
+            font-size: 13px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ================= DOCTORS ================= */
+
+        .doctors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .doctor {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .doctor-photo {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #0b7fab, #00a896);
+        }
+
+        .doctor h3 {
+            margin-top: 15px;
+            font-size: 17px;
+        }
+
+        .doctor p {
+            color: var(--primary);
+            font-size: 13px;
+            margin: 6px 0;
+        }
+
+        .stars {
+            color: #f5b942;
+            font-size: 13px;
+        }
+
+        /* ================= APPOINTMENT ================= */
+
+        .appointment-section {
+            background: linear-gradient(135deg, #e9f9fb, #f6fffe);
+        }
+
+        .appointment-box {
+            background: white;
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .appointment-info h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .appointment-info p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .contact-number {
+            margin-top: 20px;
+            color: var(--primary);
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #516577;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #dce5ea;
+            padding: 12px;
+            border-radius: 8px;
+            outline: none;
+            background: #fbfdfe;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px;
+            border-radius: 9px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        /* ================= EMERGENCY ================= */
+
+        .emergency {
+            background: #fff0f0;
+            border: 1px solid #ffd7d7;
+            border-radius: 18px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .emergency h2 {
+            color: #b82d2d;
+            margin-bottom: 8px;
+        }
+
+        .emergency p {
+            color: #765454;
+        }
+
+        .emergency-phone {
+            background: var(--danger);
+            color: white;
+            padding: 16px 25px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #102d43;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 35px;
+        }
+
+        footer h3 {
+            margin-bottom: 16px;
+        }
+
+        footer p,
+        footer li {
+            color: #abc0ce;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer a {
+            color: #abc0ce;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #8ea7b7;
+            font-size: 12px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero-card {
+                display: none;
+            }
+
+            .stats-grid,
+            .departments,
+            .doctors {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .appointment-box {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 0 20px;
+            }
+
+            .logo h2 {
+                font-size: 17px;
+            }
+
+            .hero {
+                padding: 50px 25px;
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .stats-grid,
+            .departments,
+            .doctors {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                margin-top: 20px;
+            }
+
+            .section {
+                padding: 45px 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .emergency {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .emergency-phone {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">+</div>
+
+            <div>
+                <h2>KK FUNDA HOSPITAL</h2>
+                <span>CARE • CURE • COMMITMENT</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#departments">Departments</a>
+            <a href="#doctors">Doctors</a>
+            <a href="#appointment">Appointments</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="tel:9676831734" class="emergency-btn">
+            ☎ Emergency
+        </a>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                🏥 MODERN HEALTHCARE MANAGEMENT
+            </div>
+
+            <h1>
+                Your Health.<br>
+                <span>Our Priority.</span>
+            </h1>
+
+            <p>
+                Welcome to KK FUNDA HOSPITAL — providing compassionate,
+                reliable and modern healthcare services in Bangalore.
+                Our dedicated medical team is committed to quality patient care.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#appointment" class="btn btn-primary">
+                    Book Appointment
+                </a>
+
+                <a href="#departments" class="btn btn-outline">
+                    Explore Departments
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <h3>Hospital Information</h3>
+
+            <div class="hero-info">
+                <div class="hero-info-icon">📍</div>
+                <div>
+                    <small>Location</small>
+                    <strong>Bangalore, Karnataka</strong>
+                </div>
+            </div>
+
+            <div class="hero-info">
+                <div class="hero-info-icon">📞</div>
+                <div>
+                    <small>Phone</small>
+                    <strong>9676831734</strong>
+                </div>
+            </div>
+
+            <div class="hero-info">
+                <div class="hero-info-icon">🕐</div>
+                <div>
+                    <small>Emergency</small>
+                    <strong>24 / 7 Support</strong>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">👨‍⚕️</div>
+                        <span class="increase">+12%</span>
+                    </div>
+                    <h2>48</h2>
+                    <p>Medical Staff</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">🛏️</div>
+                        <span class="increase">Available</span>
+                    </div>
+                    <h2>120</h2>
+                    <p>Total Beds</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">❤️</div>
+                        <span class="increase">+18%</span>
+                    </div>
+                    <h2>8,450</h2>
+                    <p>Patients Served</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon">📅</div>
+                        <span class="increase">Today</span>
+                    </div>
+                    <h2>86</h2>
+                    <p>Appointments</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="section" id="dashboard">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>HOSPITAL MANAGEMENT</small>
+                <h2>Today's Overview</h2>
+                <p>Monitor appointments and patient activity.</p>
+            </div>
+
+
+            <div class="dashboard">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h3>Today's Appointments</h3>
+                        <a href="#appointment">+ Add Appointment</a>
+                    </div>
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <div class="avatar">RK</div>
+                                        Rahul Kumar
+                                    </div>
+                                </td>
+                                <td>Dr. Ananya</td>
+                                <td>09:30 AM</td>
+                                <td>
+                                    <span class="badge confirmed">Confirmed</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <div class="avatar">PS</div>
+                                        Priya Sharma
+                                    </div>
+                                </td>
+                                <td>Dr. Vikram</td>
+                                <td>10:15 AM</td>
+                                <td>
+                                    <span class="badge pending">Pending</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <div class="avatar">AM</div>
+                                        Arjun Mehta
+                                    </div>
+                                </td>
+                                <td>Dr. Kiran</td>
+                                <td>11:30 AM</td>
+                                <td>
+                                    <span class="badge confirmed">Confirmed</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="patient">
+                                        <div class="avatar">SN</div>
+                                        Sneha Nair
+                                    </div>
+                                </td>
+                                <td>Dr. Ananya</td>
+                                <td>01:00 PM</td>
+                                <td>
+                                    <span class="badge pending">Pending</span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h3>Patient Summary</h3>
+                        <a href="#">View Report</a>
+                    </div>
+
+                    <div style="margin-bottom:25px;">
+                        <p style="color:#83919e;font-size:13px;">Outpatients Today</p>
+                        <h2 style="font-size:34px;margin-top:6px;">64</h2>
+                    </div>
+
+                    <div style="margin-bottom:25px;">
+                        <p style="color:#83919e;font-size:13px;">Inpatients</p>
+                        <h2 style="font-size:34px;margin-top:6px;">42</h2>
+                    </div>
+
+                    <div>
+                        <p style="color:#83919e;font-size:13px;">Available Beds</p>
+                        <h2 style="font-size:34px;margin-top:6px;color:#20a464;">
+                            78
+                        </h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DEPARTMENTS ================= -->
+
+    <section class="section" id="departments">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>OUR SERVICES</small>
+                <h2>Medical Departments</h2>
+                <p>Specialized healthcare under one roof.</p>
+            </div>
+
+            <div class="departments">
+
+                <div class="department">
+                    <div class="department-icon">❤️</div>
+                    <h3>Cardiology</h3>
+                    <p>
+                        Comprehensive diagnosis and treatment
+                        for heart-related conditions.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">🧠</div>
+                    <h3>Neurology</h3>
+                    <p>
+                        Specialized care for brain,
+                        nerve and neurological disorders.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">🦴</div>
+                    <h3>Orthopedics</h3>
+                    <p>
+                        Advanced treatment for bones,
+                        joints, muscles and mobility.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">👶</div>
+                    <h3>Pediatrics</h3>
+                    <p>
+                        Complete healthcare services
+                        for infants, children and teenagers.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">🩺</div>
+                    <h3>General Medicine</h3>
+                    <p>
+                        Diagnosis and management of
+                        common and complex medical conditions.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">🔬</div>
+                    <h3>Laboratory</h3>
+                    <p>
+                        Reliable diagnostic testing
+                        supported by modern technology.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">🚑</div>
+                    <h3>Emergency Care</h3>
+                    <p>
+                        Immediate medical assistance
+                        for urgent healthcare situations.
+                    </p>
+                </div>
+
+                <div class="department">
+                    <div class="department-icon">💊</div>
+                    <h3>Pharmacy</h3>
+                    <p>
+                        Convenient access to prescribed
+                        medicines and healthcare products.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DOCTORS ================= -->
+
+    <section class="section" id="doctors" style="background:#eef8fa;">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>OUR MEDICAL TEAM</small>
+                <h2>Meet Our Doctors</h2>
+                <p>Experienced professionals dedicated to patient care.</p>
+            </div>
+
+            <div class="doctors">
+
+                <div class="doctor">
+                    <div class="doctor-photo">DA</div>
+                    <h3>Dr. Ananya Rao</h3>
+                    <p>Cardiologist</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+                <div class="doctor">
+                    <div class="doctor-photo">DV</div>
+                    <h3>Dr. Vikram Singh</h3>
+                    <p>Neurologist</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+                <div class="doctor">
+                    <div class="doctor-photo">DK</div>
+                    <h3>Dr. Kiran Kumar</h3>
+                    <p>Orthopedic Specialist</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+                <div class="doctor">
+                    <div class="doctor-photo">DS</div>
+                    <h3>Dr. Sneha Patel</h3>
+                    <p>Pediatrician</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= APPOINTMENT ================= -->
+
+    <section class="section appointment-section" id="appointment">
+
+        <div class="container">
+
+            <div class="appointment-box">
+
+                <div class="appointment-info">
+
+                    <small style="color:#0b7fab;font-weight:bold;">
+                        APPOINTMENT
+                    </small>
+
+                    <h2>Book a Consultation</h2>
+
+                    <p>
+                        Schedule an appointment with our medical team.
+                        Fill out the form and our hospital team can
+                        contact you regarding your appointment.
+                    </p>
+
+                    <div class="contact-number">
+                        ☎ 9676831734
+                    </div>
+
+                </div>
+
+
+                <form onsubmit="bookAppointment(event)">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Patient Name</label>
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter patient name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input
+                                type="tel"
+                                placeholder="Enter phone number"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select required>
+                                <option value="">Select Department</option>
+                                <option>Cardiology</option>
+                                <option>Neurology</option>
+                                <option>Orthopedics</option>
+                                <option>Pediatrics</option>
+                                <option>General Medicine</option>
+                                <option>Emergency Care</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Doctor</label>
+                            <select required>
+                                <option value="">Select Doctor</option>
+                                <option>Dr. Ananya Rao</option>
+                                <option>Dr. Vikram Singh</option>
+                                <option>Dr. Kiran Kumar</option>
+                                <option>Dr. Sneha Patel</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Appointment Date</label>
+                            <input type="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Appointment Time</label>
+                            <input type="time" required>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>Message</label>
+                            <textarea
+                                rows="3"
+                                placeholder="Describe your requirement..."
+                            ></textarea>
+                        </div>
+
+                        <div class="full">
+                            <button class="submit-btn" type="submit">
+                                📅 Request Appointment
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EMERGENCY ================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="emergency">
+
+                <div>
+                    <h2>🚨 Emergency Assistance</h2>
+                    <p>
+                        For urgent medical assistance, contact
+                        KK FUNDA HOSPITAL immediately.
+                    </p>
+                </div>
+
+                <a href="tel:9676831734"
+                   class="emergency-phone">
+                    ☎ 9676831734
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h3>KK FUNDA HOSPITAL</h3>
+
+                    <p>
+                        Quality healthcare with compassion,
+                        professionalism and commitment to
+                        every patient.
+                    </p>
+
+                    <p style="margin-top:12px;">
+                        📍 Bangalore, Karnataka, India
+                    </p>
+
+                    <p>
+                        ☎ 9676831734
+                    </p>
+                </div>
+
+
+                <div>
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#doctors">Doctors</a></li>
+                        <li><a href="#appointment">Appointments</a></li>
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h3>Services</h3>
+
+                    <ul>
+                        <li>Emergency Care</li>
+                        <li>Laboratory</li>
+                        <li>Pharmacy</li>
+                        <li>General Medicine</li>
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h3>Hospital Hours</h3>
+
+                    <p>Emergency: 24 / 7</p>
+                    <p>OPD: 08:00 AM - 08:00 PM</p>
+                    <p>Appointments: 09:00 AM - 06:00 PM</p>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                © 2026 KK FUNDA HOSPITAL. All Rights Reserved.
+                | Bangalore
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function bookAppointment(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("patientName").value;
+
+            alert(
+                "Appointment request submitted successfully!\n\n" +
+                "Patient: " + name +
+                "\n\nKK FUNDA HOSPITAL will contact you regarding the appointment."
+            );
+
+            event.target.reset();
+        }
+
+    </script>
+
+</body>
+</html>
